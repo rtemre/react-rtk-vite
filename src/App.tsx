@@ -5,11 +5,15 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "./redux/store";
 import { increment, decrement } from "./redux/slice/counter/counterSlice";
+import { Calculator } from "./utils/calculator";
 
 function App() {
   // const [count, setCount] = useState(0)
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
+
+  const calc = new Calculator();
+  const sum = calc.add(2, 3); // Example usage
 
   return (
     <>
@@ -41,6 +45,9 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+      </div>
+      <div>
+        <p>2 + 3 = {sum}</p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
