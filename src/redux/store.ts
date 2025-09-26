@@ -3,6 +3,8 @@ import counterReducer from "../redux/slice/counter/counterSlice";
 import productReducer from "./slice/products/productsSlice";
 import { productApi } from "./slice/products/productApi";
 import { todoApi } from "./slice/todo/todoApi";
+import { loginApi } from "./slice/login/loginApi";
+import { authReducer } from "./slice/login/authSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,9 +12,15 @@ export const store = configureStore({
     product: productReducer,
     [productApi.reducerPath]: productApi.reducer,
     [todoApi.reducerPath]: todoApi.reducer,
+    [loginApi.reducerPath]: loginApi.reducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productApi.middleware, todoApi.middleware),
+    getDefaultMiddleware().concat(
+      productApi.middleware,
+      todoApi.middleware,
+      loginApi.middleware
+    ),
 
   // DevTools are enabled by default in development
   devTools: import.meta.env.MODE !== "production",
