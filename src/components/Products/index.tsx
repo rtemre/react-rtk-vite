@@ -1,4 +1,4 @@
-import { useGetProductsQuery } from "../../redux/slice/products/apiSlice";
+import { useGetProductsQuery } from "../../redux/slice/products/productApi";
 // import type { RootState } from "../../redux/store";
 // import { useSelector } from "react-redux";
 import "./style.css";
