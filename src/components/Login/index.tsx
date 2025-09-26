@@ -50,13 +50,25 @@ function Login() {
         ) : (
           <form onSubmit={handleSubmit} className="login-form">
             <h2>Please login!</h2>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              //   onChange={handleChange}
-            />
-            <input type="password" name="password" placeholder="Password" />
+            <div className="input-group">
+              <label htmlFor="username">Username</label>
+              <input
+                id="username"
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                //   onChange={handleChange}
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="password">Password</label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+              />
+            </div>
             <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
           </form>
         )}
